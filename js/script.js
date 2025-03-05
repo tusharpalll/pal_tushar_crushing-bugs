@@ -76,6 +76,16 @@ function allowDrop(event) {
     this.appendChild(droppedEl);
 }
 
+puzzleContainer.addEventListener('dragover', allowDragOver);
+puzzleContainer.addEventListener('drop', function (event) {
+    event.preventDefault();
+
+    let droppedElId = event.dataTransfer.getData('draggedEl');
+    let droppedEl = document.querySelector(`#${droppedElId}`);
+
+    puzzleContainer.appendChild(droppedEl);
+});
+
 // event listeners
 theThumbnails.forEach(thumbnail => thumbnail.addEventListener('click', changeImageSet));
 pzlPieces.forEach(piece => piece.addEventListener('dragstart', allowDrag));
