@@ -19,12 +19,20 @@ function changeImageSet() {
                     //-------
                       //Bug 2- pieces did not change when i switch to other puzzzle and came back
                     //-------
-                    //now pieces are being reset
+                      //now pieces are being reset
 
     dropZones.forEach(zone => {
         if (zone.firstElementChild) {
             puzzleContainer.appendChild(zone.firstElementChild);
         }
+    });
+                        //-------
+                      //Bug 3- Ater switching to other section of puzzle pieces were not being changed
+                    //-------
+                      // now pieces are being changed
+
+    pzlPieces.forEach(piece => {
+         piece.src = `images/${piece.id}${this.dataset.bgref}.jpg`;
     });
 
     gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;
