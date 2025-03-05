@@ -26,15 +26,17 @@ function changeImageSet() {
             puzzleContainer.appendChild(zone.firstElementChild);
         }
     });
-                        //-------
+
+                            //-------
                       //Bug 3- Ater switching to other section of puzzle pieces were not being changed
                     //-------
                       // now pieces are being changed
 
-    pzlPieces.forEach(piece => {
-         piece.src = `images/${piece.id}${this.dataset.bgref}.jpg`;
-    });
-
+                      
+                      pzlPieces.forEach(piece => {
+                        piece.src = `images/${piece.id}${this.dataset.bgref}.jpg`;
+                   });
+               
     gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;
 }
 
