@@ -16,6 +16,17 @@ let theThumbnails = document.querySelectorAll('#buttonHolder img'),
 function changeImageSet() {
     console.log('changing PuZzle Image Set');
 
+                    //-------
+                      //Bug 2- pieces did not change when i switch to other puzzzle and came back
+                    //-------
+                    //now pieces are being reset
+
+    dropZones.forEach(zone => {
+        if (zone.firstElementChild) {
+            puzzleContainer.appendChild(zone.firstElementChild);
+        }
+    });
+
     gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;
 }
 
@@ -35,10 +46,10 @@ function allowDragOver(event) {
 function allowDrop(event) {
     event.preventDefault();
 
- //-------
- // bug 1-Dropzone is able to take a lot of pieces at a time
- //-------
- // now only one piece can be dropped at a time
+                    //-------
+                 // bug 1-Dropzone is able to take a lot of pieces at a time
+                   //-------
+                 // now only one piece can be dropped at a time
 
     if (this.children.length > 0) {
         console.log('Drop zone already occupied.');
